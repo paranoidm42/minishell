@@ -24,7 +24,6 @@ int main(int ac, char **av,char **env)
     if(index == -1)
         return (0);
     data->path = env[index];
-    printf("%s\n------------\n",data->path);
     while (1)
     {
         check_signal();

@@ -28,12 +28,13 @@ typedef struct s_lex
 
 } t_lex;
 
-typedef strutc s_envo
-{
-	char *title;
-	char *content;
-	struct s_envo;
-} t_envo;
+// typedef struct s_envo
+// {
+// 	char *title;
+// 	char *content;
+// 	struct s_envo;
+// } t_envo;
+
 
 void check_signal();
 
