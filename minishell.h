@@ -20,6 +20,21 @@ typedef struct s_data
 	char *path;
 } t_data;
 
+typedef struct s_lex
+{
+	char type;
+	char *content;
+	struct s_lex *next;
+
+} t_lex;
+
+typedef strutc s_envo
+{
+	char *title;
+	char *content;
+	struct s_envo;
+} t_envo;
+
 void check_signal();
 
 #endif
