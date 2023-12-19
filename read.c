@@ -29,6 +29,7 @@ int main(int ac, char **av,char **env)
         check_signal();
         data->cmd = readline("$ ");
         add_history(data->cmd);
+        lexer_main(data);
         if(strncmp(data->cmd,"exit",5) == 0)
             return (0);
 
