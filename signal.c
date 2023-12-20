@@ -19,5 +19,9 @@ void	ft_signal(int flag)
 		exit (0);
 }
 
+<<<<<<< HEAD
 //ccura selamlar
 //bedirhana selamlar
+=======
+//ccura selamlar
+>>>>>>> ac3ac5f3614ea65a323b542a7f54613d4f7bfb99
