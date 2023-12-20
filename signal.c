@@ -17,11 +17,4 @@ void	ft_signal(int flag)
 	}
 	else if (flag == 3)
 		exit (0);
-<<<<<<< HEAD
 }
-
-//ccura selamlar
-//bedirhana selamlar
-=======
-}
->>>>>>> bedirrhaan
