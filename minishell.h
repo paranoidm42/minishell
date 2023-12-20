@@ -37,7 +37,7 @@ typedef struct s_data
 } t_data;
 
 
-void check_signal();
+void ft_signal();
 void lexer_main(t_data *data);
 
 #endif
