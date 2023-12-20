@@ -1,19 +1,20 @@
 #include "minishell.h"
 
-void exect_signal(int signal)
+void	sig_int(int sig)
 {
-	if(signal == SIGINT)
-	{
-		printf("\n");
-		rl_on_new_line();
-		rl_replace_line("", 0);
-		rl_redisplay();
-	}
+	(void)sig;
+	ioctl(STDIN_FILENO, TIOCSTI, "\n");
+	rl_replace_line("", 0);
+	rl_on_new_line();
 }
 
-void check_signal(void)
+void	ft_signal(int flag)
 {
-	signal(SIGQUIT, SIG_IGN);
-	signal(SIGINT, SIG_IGN);
-	signal(SIGINT, exect_signal);
+	if (flag == 1)
+	{
+		signal(SIGINT, sig_int);
+		signal(SIGQUIT, SIG_IGN);
+	}
+	else if (flag == 3)
+		exit (0);
 }

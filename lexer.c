@@ -13,11 +13,15 @@ void lexer_main(t_data *data)
     }
 }
 
+<<<<<<< HEAD
 
 
 
 /*
 static int comma_pass(char const *s, int i)
+=======
+/*static int comma_pass(char const *s, int i)
+>>>>>>> e91e367790624d2e05636867b8c3196f315273d8
 {
 	int size;
 	size = 0;

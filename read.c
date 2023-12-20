@@ -26,13 +26,14 @@ int main(int ac, char **av,char **env)
     data->path = env[index];
     while (1)
     {
-        check_signal();
+        ft_signal(1);
         data->cmd = readline("$ ");
+        if (!(data->cmd))
+            ft_signal(3);
         add_history(data->cmd);
         lexer_main(data);
         if(strncmp(data->cmd,"exit",5) == 0)
             return (0);
-
     }
     return  (1);
 }
