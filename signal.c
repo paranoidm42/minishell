@@ -20,3 +20,4 @@ void	ft_signal(int flag)
 }
 
 // MERHABA
+// GECELER KARA TREN
