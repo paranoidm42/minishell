@@ -19,4 +19,4 @@ void	ft_signal(int flag)
 		exit (0);
 }
 
-// MERHABA
+//ccura selamlar
