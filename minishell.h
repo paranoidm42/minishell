@@ -15,6 +15,7 @@
 
 typedef struct s_lex
 {
+	char type;
 	char *content;
 	struct s_lex *next;
 
@@ -34,8 +35,6 @@ typedef struct s_data
 	char *path;
 	struct s_lex *lex;
 } t_data;
-
-
 
 
 void check_signal();
