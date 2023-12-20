@@ -18,3 +18,8 @@ void	ft_signal(int flag)
 	else if (flag == 3)
 		exit (0);
 }
+<<<<<<< HEAD
+=======
+
+//ccura selamlar
+>>>>>>> ac3ac5f3614ea65a323b542a7f54613d4f7bfb99
