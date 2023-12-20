@@ -18,6 +18,3 @@ void	ft_signal(int flag)
 	else if (flag == 3)
 		exit (0);
 }
-
-// MERHABA
-// GECELER KARA TREN
