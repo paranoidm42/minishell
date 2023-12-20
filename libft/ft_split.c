@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:18:47 by ccur              #+#    #+#             */
-/*   Updated: 2023/07/13 16:35:42 by ccur             ###   ########.fr       */
+/*   Updated: 2023/12/20 10:08:24 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,25 @@ static int	ft_count_word(char const *s, char c)
 	return (word);
 }
 
+static int comma_pass(char const *s, int i)
+[
+
+	while (s[i] && (s[i] != "\"" || s[i] != "\'"))
+	{
+		i++;
+	}
+	return (i);
+]
+
 static int	ft_size_word(char const *s, char c, int i)
 {
-	int	size;
-
+	int size;
 	size = 0;
+	if(s[i] && s[i] == "\'" ||s[i] == "\"")
+	{
+		size = comma_pass(s,i);
+		return size;
+	}
 	while (s[i] != c && s[i])
 	{
 		size++;
