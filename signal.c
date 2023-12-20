@@ -20,3 +20,4 @@ void	ft_signal(int flag)
 }
 
 //ccura selamlar
+//bedirhana selamlar
