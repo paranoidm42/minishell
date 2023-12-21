@@ -1,88 +1,59 @@
 #include "minishell.h"
-
+/*
+ commo_seperate fonksiyonunun parçası,tırnaklar için flag kontrolü yapar.
+*/
+static int flag_check(char input, int *xsingle, int *ydouble)
+{
+    if (input == '\'' && !(*ydouble))
+    {
+        (*xsingle)--;
+        if (*xsingle == -2)
+            *xsingle = 0;
+        return 0;
+    }
+    else if (input == '"' && !(*xsingle))
+    {
+        (*ydouble)--;
+        if (*ydouble == -2)
+            *ydouble = 0;
+        return 0;
+    }
+    return 1;
+}
+/*
+ commo_seperate fonksiyon bir metnin içindeki tırnakları eşleğenine göre kaldırır
+*/
+char *commo_seperate(const char *input)
+{
+    int xsingle = 0;
+    int ydouble = 0;
+    char *output;
+    char *save;
+    output = malloc(sizeof(char) * 255);
+    if (output == NULL)
+        return NULL;
+    save = output;
+    while (*input)
+    {
+        if (flag_check(*input, &xsingle, &ydouble))
+        {
+            if (*input == '\'' || *input == '"')
+                *output = *input;
+            else
+                *output = *input;
+            output++;
+        }
+        input++;
+    }
+    *output = '\0';
+    if (ydouble == -1 || xsingle == -1)
+        return (free(save),NULL);
+    return save;
+}
 
 void lexer_main(t_data *data)
 {
-	char **swap;
-    int i = 0;
-    swap = ft_split(data->cmd,' ');
-    while (swap[i])
-    {
-        printf("%s\n",swap[i]);
-        i++;
-    }
+    char *outputText;
+    outputText = commo_seperate(data->cmd);
+    printf("%s\n", outputText);
 }
-
-
-// MERHABA
-
-/*
-static int comma_pass(char const *s, int i)
-{
-	int size;
-	size = 0;
-	while (s[i] && (s[i] != '\'' || s[i] != '\"'))
-	{
-		size++;
-		i++;
-	}
-	return (size);
-}
-*/
-/*
-void creat_and_add(t_lex **head, char *content)
-{
-    t_lex *new_node = (t_lex *)malloc(sizeof(t_lex));
-    if (new_node)
-    {
-        new_node->content = content;
-        new_node->next = NULL;
-        if (*head == NULL)
-            *head = new_node;
-        else
-        {
-            t_lex *last = *head;
-            while (last->next != NULL)
-            {
-                last = last->next;
-            }
-            last->next = new_node;
-        }
-    }
-}
-*/
-
-/*
-
-char *ft_remove_some(char *str)
-{
-    int i = 0;
-    int pass = 0;
-    char *swap;
-    while (str[i])
-    {
-        char test = str[i];
-        if (str[i] == '\'' || str[i] == '\"')
-        {
-            pass++;
-            while (str[i] != test)
-                i++;
-        }
-        i++;
-    }
-    swap = malloc(sizeof(char) * (ft_strlen(str) - pass + 1));
-    i = 0;
-    int j = 0;
-    while (str[i])
-    {
-        if (str[i] != '\'' && str[i] != '\"')
-        {
-            swap[j] = str[i];
-            j++;
-        }
-        i++;
-    }
-    swap[j] = '\0';
-    return swap;
-}
-*/
