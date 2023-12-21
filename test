@@ -1,0 +1,31 @@
+
+void commo_seperate(const char *input, char *output) {
+    int xsingle = 0;
+    int ydouble = 0;
+
+    while (*input)
+    {
+        if (*input == '\'' && !ydouble)
+        {
+            xsingle--;
+            if(xsingle == -2)
+                xsingle = 0;
+        }
+        else if (*input == '"' && !xsingle)
+        {
+            ydouble--;
+            if(ydouble == -2)
+                ydouble = 0;
+        }
+        else
+        {
+            if (*input == '\'' || *input == '"')
+                *output = *input;
+            else
+                 *output = *input;
+            output++;
+        }
+        input++;
+    }
+    *output = '\0';
+}
