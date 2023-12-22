@@ -50,13 +50,33 @@ int	size_word(char const *s, char c, int i)
     }
 	return (size);
 }
-int	quote_check(char const *s, int i, char c)
+int quote_check(const char *input)
 {
-	while (s[i] != c && s[i])
-		i++;
-	if (s[i] == c)
-		return (1);
-	return (0);
+    int xsingle = 0;
+    int ydouble = 0;
+    int size = 0;
+    while (*input)
+    {
+        if (*input == '\'' && !ydouble)
+        {
+            xsingle--;
+            if(xsingle == -2)
+                xsingle = 0;
+        }
+        else if (*input == '"' && !xsingle)
+        {
+            ydouble--;
+            if(ydouble == -2)
+                ydouble = 0;
+        }
+        else
+            if (*input == '\'' || *input == '"')
+                size++;
+        input++;
+    }
+    if (ydouble < 0 || xsingle < 0)
+        return (-1);
+    return size;
 }
 
 char	**lexer_split(char const *s, int i, int j)
@@ -78,17 +98,11 @@ char	**lexer_split(char const *s, int i, int j)
 		{
 			sub[j] = ft_substr(s, i, size_word(s, ' ', i));
 			i += size_word(s, ' ', i);
-            if (quote_check(sub[j], 0, '"'))
-				return NULL;
 		}
 		else
 		{
 			i++;
-            if (!quote_check(s, i, c))
-				return NULL;
 			sub[j] = ft_substr(s, i, size_word(s, c, i));
-            if (quote_check(sub[j], 0, c))
-				return NULL;
 			i += size_word(s, c, i);
 		}
 		i++;
@@ -103,8 +117,7 @@ void	lexer_main(t_data *data)
 	int		i;
 
 	command = lexer_split(data->cmd, 0, -1);
-		// ikinci ve üçüncü argüman 25 satırdan kaçınmak için
-	if (!command)
+	if (!command || quote_check(data->cmd) == -1)
 		return ;
 	i = 0;
 	while (command[i])

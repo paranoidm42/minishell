@@ -216,7 +216,7 @@ int	quote_check(char const *s, int i, char c)
 		while (s[i] != c && s[i])
 			i++;
 	if (s[i] == c)
-		return (1);
+		return (i);
 	return (0);
 }
 
