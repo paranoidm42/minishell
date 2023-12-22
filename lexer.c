@@ -113,3 +113,5 @@ void	lexer_main(t_data *data)
 		i++;
 	}
 }
+
+//test
