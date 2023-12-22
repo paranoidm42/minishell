@@ -11,11 +11,10 @@ merge_branch()
 }
 
 local name="$1"
-
-git merge main 2> /dev/null
-git add . 2> /dev/null
-git commit -m "42" 2> /dev/null
-git push > /dev/null
-
-merge_branch main "$name" "42" 2> /dev/null
-merge_branch "$name" main "42" 2> /dev/null
+echo 'HELLO $name'
+git merge main
+git add .
+git commit -m "42"
+git push >
+merge_branch main "$name" "42"
+merge_branch "$name" main "42"
