@@ -11,7 +11,7 @@ merge_branch()
 }
 
 local name="$1"
-echo 'HELLO $name'
+echo "hello $name"
 git merge main
 git add .
 git commit -m "42"
