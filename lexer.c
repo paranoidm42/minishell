@@ -107,11 +107,11 @@ void	lexer_main(t_data *data)
 	if (!command || quote_check(data->cmd) == -1)
 		return ;
 	i = 0;
+	data->lex = malloc(sizeof(t_lex));
 	while (command[i])
 	{
-		printf("%s|\n", command[i]);
+		data->lex->content = command[i];
+
 		i++;
 	}
 }
-
-//test
