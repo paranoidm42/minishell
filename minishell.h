@@ -37,7 +37,8 @@ typedef struct s_data
 } t_data;
 
 
-void ft_signal();
-void lexer_main(t_data *data);
+void	ft_signal();
+void	lexer_main(t_data *data);
+t_envo	*env_list(char **env);
 
 #endif

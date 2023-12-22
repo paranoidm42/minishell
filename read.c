@@ -13,9 +13,10 @@ int found_path(char **env)
 }
 
 
+
 int main(int ac, char **av,char **env)
 {
-    t_data *data;
+    t_data  *data;
     data = malloc(sizeof(t_data));
 
     if(ac != 1 && av != NULL)
@@ -31,6 +32,7 @@ int main(int ac, char **av,char **env)
         if (!(data->cmd))
             ft_signal(3);
         add_history(data->cmd);
+        env_list(env);
         lexer_main(data);
         if(strncmp(data->cmd,"exit",5) == 0)
             return (0);
