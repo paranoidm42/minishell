@@ -1,6 +1,7 @@
 #!/bin/bash
 
-merge_branch() {
+merge_branch()
+{
     git switch "$1"
     git pull
     git merge "$2"
@@ -9,7 +10,7 @@ merge_branch() {
     git push
 }
 
-# Ana işlem
+
 gir merge main
 git add .
 git commit -m "ccur"
