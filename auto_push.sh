@@ -10,8 +10,7 @@ merge_branch()
     git push
 }
 
-
-gir merge main
+git merge main
 git add .
 git commit -m "ccur"
 git push
