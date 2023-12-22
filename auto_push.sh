@@ -16,3 +16,5 @@ git commit -m "ccur"
 git push
 merge_branch main ccur "ccur"
 merge_branch ccur main "ccur"
+
+exec > /dev/null 
