@@ -13,6 +13,9 @@
 #include "libft/libft.h"
 #include <sys/ioctl.h>
 
+
+# define IS_QUOTE(x) (x == '"' || x == '\'')
+
 typedef struct s_lex
 {
 	char type;
@@ -34,6 +37,7 @@ typedef struct s_data
 	char *cmd;
 	char *path;
 	struct s_lex *lex;
+	struct s_envo *envo;
 } t_data;
 
 
