@@ -10,11 +10,11 @@ merge_branch()
     git push
 }
 
-local name="$1"
+name="$1"
 echo "hello $name"
 git merge main
 git add .
 git commit -m "42"
-git push >
+git push
 merge_branch main "$name" "42"
 merge_branch "$name" main "42"
