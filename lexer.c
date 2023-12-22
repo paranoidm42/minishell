@@ -39,44 +39,31 @@ int	size_word(char const *s, char c, int i)
 		size++;
 		i++;
 	}
-	if (s[i] == c && c != ' ')
-    {
+	if (s[i] == c && c != ' ' && s[i + 1] > 32 ) // duruma göre buraya ardışık tırnaklarda kontrol eklenebilir
 		while (s[i] != ' ' && s[i])
 		{
 			i++;
 			size++;
 		}
-        return (size - 1);
-    }
+
 	return (size);
 }
 int quote_check(const char *input)
 {
     int xsingle = 0;
     int ydouble = 0;
-    int size = 0;
     while (*input)
     {
         if (*input == '\'' && !ydouble)
-        {
-            xsingle--;
-            if(xsingle == -2)
-                xsingle = 0;
-        }
+            xsingle = (xsingle + 1) % 2;
         else if (*input == '"' && !xsingle)
-        {
-            ydouble--;
-            if(ydouble == -2)
-                ydouble = 0;
-        }
-        else
-            if (*input == '\'' || *input == '"')
-                size++;
+            ydouble = (ydouble + 1) % 2;
+
         input++;
     }
-    if (ydouble < 0 || xsingle < 0)
-        return (-1);
-    return size;
+    if (ydouble != 0 || xsingle != 0)
+        return -1;
+    return 0;
 }
 
 char	**lexer_split(char const *s, int i, int j)
