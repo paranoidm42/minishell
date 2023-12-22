@@ -2,6 +2,7 @@
 
 merge_branch()
 {
+    echo "WRİTE"
     git switch "$1"
     git pull
     git merge "$2"
