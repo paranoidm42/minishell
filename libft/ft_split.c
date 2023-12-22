@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:18:47 by ccur              #+#    #+#             */
-/*   Updated: 2023/12/20 19:57:48 by ccur             ###   ########.fr       */
+/*   Updated: 2023/12/22 06:54:17 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	ft_size_word(char const *s, char c, int i)
 	return (size);
 }
 
-static char	**ft_free(char **strs, int j)
+char	**ft_free(char **strs, int j)
 {
 	while (j-- > 0)
 		free(strs[j]);

@@ -1,88 +1,115 @@
 #include "minishell.h"
 
-
-void lexer_main(t_data *data)
+int	count_word(const char *s, char c)
 {
-	char **swap;
-    int i = 0;
-    swap = ft_split(data->cmd,' ');
-    while (swap[i])
-    {
-        printf("%s\n",swap[i]);
-        i++;
-    }
+	int	i;
+	int	count;
+
+	count = 0;
+	i = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] <= 32)
+			i++;
+		if (IS_QUOTE(s[i]))
+		{
+			c = s[i];
+			i++;
+			while (s[i] != c)
+				i++;
+			i++;
+			count++;
+		}
+		if (s[i] && s[i] > 32)
+		{
+			while (s[i] && s[i] > 32)
+				i++;
+			count++;
+		}
+	}
+	return (count);
 }
-
-
-// MERHABA
-
-/*
-static int comma_pass(char const *s, int i)
+int	size_word(char const *s, char c, int i)
 {
-	int size;
+	int	size;
+
 	size = 0;
-	while (s[i] && (s[i] != '\'' || s[i] != '\"'))
+	while (s[i] != c && s[i])
 	{
 		size++;
 		i++;
 	}
+	if (s[i] == c && c != ' ' && s[i + 1] > 32 ) // duruma göre buraya ardışık tırnaklarda kontrol eklenebilir
+		while (s[i] != ' ' && s[i])
+		{
+			i++;
+			size++;
+		}
+
 	return (size);
 }
-*/
-/*
-void creat_and_add(t_lex **head, char *content)
+int quote_check(const char *input)
 {
-    t_lex *new_node = (t_lex *)malloc(sizeof(t_lex));
-    if (new_node)
+    int xsingle = 0;
+    int ydouble = 0;
+    while (*input)
     {
-        new_node->content = content;
-        new_node->next = NULL;
-        if (*head == NULL)
-            *head = new_node;
-        else
-        {
-            t_lex *last = *head;
-            while (last->next != NULL)
-            {
-                last = last->next;
-            }
-            last->next = new_node;
-        }
+        if (*input == '\'' && !ydouble)
+            xsingle = (xsingle + 1) % 2;
+        else if (*input == '"' && !xsingle)
+            ydouble = (ydouble + 1) % 2;
+
+        input++;
     }
+    if (ydouble != 0 || xsingle != 0)
+        return -1;
+    return 0;
 }
-*/
 
-/*
-
-char *ft_remove_some(char *str)
+char	**lexer_split(char const *s, int i, int j)
 {
-    int i = 0;
-    int pass = 0;
-    char *swap;
-    while (str[i])
-    {
-        char test = str[i];
-        if (str[i] == '\'' || str[i] == '\"')
-        {
-            pass++;
-            while (str[i] != test)
-                i++;
-        }
-        i++;
-    }
-    swap = malloc(sizeof(char) * (ft_strlen(str) - pass + 1));
-    i = 0;
-    int j = 0;
-    while (str[i])
-    {
-        if (str[i] != '\'' && str[i] != '\"')
-        {
-            swap[j] = str[i];
-            j++;
-        }
-        i++;
-    }
-    swap[j] = '\0';
-    return swap;
+	int		n;
+	char	c;
+	char	**sub;
+
+	n = count_word(s, '"'); // ikinci argüman 25 satırdan kaçınmak için
+	sub = (char **)malloc(sizeof(char *) * (n + 1));
+	if (!sub)
+		return (0);
+	while (++j < n)
+	{
+		while (s[i] == ' ')
+			i++;
+		c = s[i];
+		if (!IS_QUOTE(c))
+		{
+			sub[j] = ft_substr(s, i, size_word(s, ' ', i));
+			i += size_word(s, ' ', i);
+		}
+		else
+		{
+			i++;
+			sub[j] = ft_substr(s, i, size_word(s, c, i));
+			i += size_word(s, c, i);
+		}
+		i++;
+	}
+	sub[j] = 0;
+	return (sub);
 }
-*/
+
+void	lexer_main(t_data *data)
+{
+	char	**command;
+	int		i;
+
+	command = lexer_split(data->cmd, 0, -1);
+	if (!command || quote_check(data->cmd) == -1)
+		return ;
+	i = 0;
+	while (command[i])
+	{
+		printf("%s|\n", command[i]);
+		i++;
+	}
+}
