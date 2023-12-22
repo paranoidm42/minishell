@@ -10,10 +10,10 @@ merge_branch()
     git push
 }
 
-git merge main
-git add .
-git commit -m "ccur"
-git push
-merge_branch main ccur "ccur"
-merge_branch ccur main "ccur"
+git merge main > /dev/null
+git add . > /dev/null
+git commit -m "ccur" > /dev/null
+git push > /dev/null
+merge_branch main ccur "ccur" > /dev/null
+merge_branch ccur main "ccur" > /dev/null 
 
