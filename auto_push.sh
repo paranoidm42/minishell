@@ -11,7 +11,7 @@ merge_branch()
 }
 
 name="$1"  > /dev/null
-printf "Merhaba $name ..."  > /dev/null
+printf "Merhaba $name ..."
 git merge main  > /dev/null
 git add .  > /dev/null
 git commit -m "42"  > /dev/null
