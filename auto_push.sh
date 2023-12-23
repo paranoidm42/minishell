@@ -15,6 +15,6 @@ printf "Merhaba $name ..."
 git merge main > /dev/null 2>&1
 git add . > /dev/null 2>&1
 git commit -m "42" > /dev/null 2>&1
-git push  > /dev/null
+git push  > /dev/null 2>&1
 merge_branch main "$name" "42" > /dev/null 2>&1
 merge_branch "$name" main "42" > /dev/null 2>&1
