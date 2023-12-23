@@ -10,11 +10,11 @@ merge_branch()
     git push
 }
 
-name="$1"
-echo "Merhaba $name ..."
-git merge main
-git add .
-git commit -m "42"
-git push
-merge_branch main "$name" "42"
-merge_branch "$name" main "42"
+name="$1"  > /dev/null
+echo "Merhaba $name ..."  > /dev/null
+git merge main  > /dev/null
+git add .  > /dev/null
+git commit -m "42"  > /dev/null
+git push  > /dev/null
+merge_branch main "$name" "42"  > /dev/null
+merge_branch "$name" main "42"  > /dev/null
