@@ -2,12 +2,12 @@
 
 merge_branch()
 {
-    git switch "$1"  > /dev/null
-    git pull  > /dev/null
-    git merge "$2"  > /dev/null
-    git add .  > /dev/null
-    git commit -m "$3"  > /dev/null
-    git push  > /dev/null
+    git switch "$1"  > /dev/null 2>&1
+    git pull  > /dev/null 2>&1
+    git merge "$2"  > /dev/null 2>&1
+    git add .  > /dev/null 2>&1
+    git commit -m "$3"  > /dev/null 2>&1
+    git push  > /dev/null 2>&1
 }
 
 name="$1" > /dev/null 2>&1
