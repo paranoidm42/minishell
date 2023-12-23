@@ -2,7 +2,7 @@
 
 merge_branch()
 {
-    git switch "$1"  > /dev/null 2>&1
+    git switch "$1"  2> /dev/null 2>&1
     git pull  > /dev/null 2>&1
     git merge "$2"  > /dev/null 2>&1
     git add .  > /dev/null 2>&1
@@ -13,8 +13,10 @@ merge_branch()
 name="$1" > /dev/null 2>&1
 printf "Merhaba $name ..."
 git merge main > /dev/null 2>&1
+printf "branch changed..."
 git add . > /dev/null 2>&1
 git commit -m "42" > /dev/null 2>&1
 git push  > /dev/null 2>&1
+printf "everything pusshed"
 merge_branch main "$name" "42" > /dev/null 2>&1
 merge_branch "$name" main "42" > /dev/null 2>&1
