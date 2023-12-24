@@ -1,6 +1,8 @@
 #include "minishell.h"
 #include <stdlib.h>
 
+
+//ENV Bölen Fonksiyon
 void	env_expander(t_envo *envo, char **env)
 {
 	int	i;
