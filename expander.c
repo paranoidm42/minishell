@@ -6,15 +6,11 @@ void	env_expander(t_envo *envo, char **env)
 	int	i;
 	int	len;
 	char	**expand;
-<<<<<<< HEAD
 	envo = malloc(sizeof(t_envo) * ft_sstrlen(env));
-=======
->>>>>>> main
 	i = 0;
 	len = ft_sstrlen(env);
 	while (env[i] && i < len)
 	{
-<<<<<<< HEAD
 		expand = ft_split(env[i]);
 		envo->title = malloc(sizeof(char) * ft_strlen(expand[0] + 1));
 		envo->content = malloc(sizeof(char) * ft_strlen(expand[1] + 1));
@@ -38,14 +34,4 @@ int main(int ac, char **av, char **env)
 		printf("Content : %s\n", envo.content);
 		envo = *envo.next;
 	}
-=======
-		expand = ft_split(env[i], '=');
-		envo->title = ft_strdup(expand[0]);
-		envo->content =	ft_strdup(expand[1]);
-		envo->next = (t_envo *)malloc(sizeof(t_envo));
-		envo = envo->next;
-		i++;
-	}
-	envo->next = NULL;
->>>>>>> main
 }
