@@ -11,12 +11,12 @@ merge_branch()
 }
 
 name="$1" > /dev/null 2>&1
-printf "Merhaba $name ..."
+printf "Merhaba $name ...\n"
 git merge main > /dev/null 2>&1
-printf "branch changed..."
+printf "Branch changed...\n"
 git add . > /dev/null 2>&1
 git commit -m "42" > /dev/null 2>&1
 git push  > /dev/null 2>&1
-printf "everything pusshed"
+printf "Everything pusshed\n"
 merge_branch main "$name" "42" > /dev/null 2>&1
 merge_branch "$name" main "42" > /dev/null 2>&1
