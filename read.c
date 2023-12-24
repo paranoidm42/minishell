@@ -12,8 +12,6 @@ int found_path(char **env)
     return (-1);
 }
 
-
-
 int main(int ac, char **av,char **env)
 {
     t_data  *data;
