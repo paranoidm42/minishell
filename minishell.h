@@ -43,7 +43,7 @@ typedef struct s_data
 
 void	ft_signal();
 void	lexer_main(t_data *data);
-t_envo	*env_list(char **env);
 int		ft_sstrlen(char **str);
+void	env_expander(t_envo *envo, char **env);
 
 #endif
