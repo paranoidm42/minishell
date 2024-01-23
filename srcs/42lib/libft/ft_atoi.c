@@ -3,45 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccur <ccur@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aerdogan <aerdogan@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 01:43:08 by ccur              #+#    #+#             */
-/*   Updated: 2023/07/13 14:37:03 by ccur             ###   ########.fr       */
+/*   Created: 2023/07/12 03:00:47 by aerdogan          #+#    #+#             */
+/*   Updated: 2023/07/12 03:00:48 by aerdogan         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(int c)
-{
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\v'
-		|| c == '\f')
-		return (1);
-	else
-		return (0);
-}
-
 int	ft_atoi(const char *str)
 {
-	int	nbr;
-	int	sign;
-	int	i;
+	int					i;
+	int					sign;
+	unsigned long int	result;
 
-	nbr = 0;
-	sign = 1;
 	i = 0;
-	while (ft_isspace(str[i]))
+	sign = 1;
+	result = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-')
 	{
-		if (str[i] == '-')
-			sign = -1;
+		sign = -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	else if (str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]))
 	{
-		nbr = (nbr * 10) + (str[i] - '0');
+		result *= 10;
+		result += str[i] - '0';
 		i++;
 	}
-	return (nbr * sign);
+	return (result * sign);
 }

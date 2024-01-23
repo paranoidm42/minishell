@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccur <ccur@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aerdogan <aerdogan@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 23:03:22 by ccur              #+#    #+#             */
-/*   Updated: 2023/07/13 16:32:21 by ccur             ###   ########.fr       */
+/*   Created: 2023/07/12 03:10:40 by aerdogan          #+#    #+#             */
+/*   Updated: 2023/07/12 03:10:46 by aerdogan         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,16 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len1;
-	size_t	len2;
-	char	*result;
-	size_t	totallen;
-	char	*temp;
+	char	*new;
+	size_t	first;
+	size_t	total;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	totallen = len1 + len2;
-	if (!s1 || !s2)
+	first = ft_strlen(s1) + 1;
+	total = ft_strlen(s2) + first;
+	new = (char *)malloc(total * sizeof(char));
+	if (!new)
 		return (NULL);
-	result = (char *)malloc((totallen + 1) * sizeof(char));
-	if (!result)
-		return (NULL);
-	temp = result;
-	while (*s1)
-		*temp++ = *s1++;
-	while (*s2)
-		*temp++ = *s2++;
-	*temp = '\0';
-	return (result);
+	ft_strlcpy(new, s1, first);
+	ft_strlcat(new, s2, total);
+	return (new);
 }

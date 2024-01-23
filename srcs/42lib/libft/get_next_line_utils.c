@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aerdogan <aerdogan@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 03:06:38 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/07/12 03:06:42 by aerdogan         ###   ########.tr       */
+/*   Created: 2023/07/27 15:17:56 by aerdogan          #+#    #+#             */
+/*   Updated: 2023/07/27 15:18:09 by aerdogan         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_free_stash(char **stash, int create_line)
 {
-	size_t	index;
+	char	*line;
 
-	index = 0;
-	while (index < n)
+	if (!*stash)
+		return (NULL);
+	if (create_line == 0)
 	{
-		if (((unsigned char *)s)[index] == (unsigned char)c)
-			return (((unsigned char *)s) + index);
-		index++;
+		if (*stash)
+		{
+			free(*stash);
+			*stash = NULL;
+		}
+		return (NULL);
+	}
+	else if (create_line == 1)
+	{
+		line = ft_strdup(*stash);
+		free(*stash);
+		*stash = NULL;
+		return (line);
 	}
 	return (NULL);
 }

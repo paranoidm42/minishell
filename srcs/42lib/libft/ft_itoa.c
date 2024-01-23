@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccur <ccur@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aerdogan <aerdogan@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/10 16:12:27 by ccur              #+#    #+#             */
-/*   Updated: 2023/07/15 10:59:32 by ccur             ###   ########.fr       */
+/*   Created: 2023/07/12 03:02:58 by aerdogan          #+#    #+#             */
+/*   Updated: 2023/07/12 03:03:00 by aerdogan         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_num_len(int n)
+static int	ft_numlen(int num)
 {
 	int	i;
 
-	if (n == 0)
+	if (num == 0)
 		return (1);
 	i = 0;
-	while (n > 0 || n < 0)
+	while (num > 0 || num < 0)
 	{
-		n /= 10;
+		num /= 10;
 		i++;
 	}
 	return (i);
@@ -30,28 +30,28 @@ static int	get_num_len(int n)
 char	*ft_itoa(int n)
 {
 	int		len;
-	char	*str;
+	char	*set;
 	long	nbr;
 
 	nbr = n;
-	len = get_num_len(nbr);
+	len = ft_numlen(nbr);
 	if (n < 0)
 	{
 		len++;
 		nbr = -nbr;
 	}
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (!str)
+	set = malloc(sizeof(char) * len + 1);
+	if (!set)
 		return (NULL);
-	str[len] = '\0';
+	set[len] = '\0';
 	while (nbr > 0)
 	{
-		str[--len] = nbr % 10 + '0';
+		set[--len] = nbr % 10 + 48;
 		nbr /= 10;
 	}
 	if (n < 0)
-		str[0] = '-';
+		set[0] = '-';
 	if (n == 0)
-		str[0] = '0';
-	return (str);
+		set[0] = '0';
+	return (set);
 }

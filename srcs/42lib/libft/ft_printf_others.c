@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_printf_others.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aerdogan <aerdogan@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 03:06:38 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/07/12 03:06:42 by aerdogan         ###   ########.tr       */
+/*   Created: 2023/07/17 11:50:40 by aerdogan          #+#    #+#             */
+/*   Updated: 2023/07/17 11:50:42 by aerdogan         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	base(unsigned long long int k, char x)
 {
-	size_t	index;
+	int	i;
+	int	tmp;
 
-	index = 0;
-	while (index < n)
+	i = 0;
+	if (k > 15)
 	{
-		if (((unsigned char *)s)[index] == (unsigned char)c)
-			return (((unsigned char *)s) + index);
-		index++;
+		tmp = base(k / 16, x);
+		if (tmp == -1)
+			return (-1);
+		i += tmp;
 	}
-	return (NULL);
+	if (k % 16 < 10)
+	{
+		if (ft_putchar((k % 16) + '0') == -1)
+			return (-1);
+	}
+	else if (ft_putchar((k % 16) + x) == -1)
+		return (-1);
+	return (++i);
 }
