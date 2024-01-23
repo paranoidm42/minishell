@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.com.  +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 15:17:56 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/07/27 15:18:09 by aerdogan         ###   ########.tr       */
+/*   Created: 2023/07/12 20:01:22 by ccur              #+#    #+#             */
+/*   Updated: 2024/01/23 22:10:46 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
