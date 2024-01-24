@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   expander_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 08:30:30 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/12/22 01:00:31 by abulut           ###   ########.fr       */
+/*   Created: 2024/01/12 03:01:58 by ccur              #+#    #+#             */
+/*   Updated: 2024/01/25 01:55:53 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
 #include "../42lib/libft/libft.h"
 #include <stdlib.h>
 #include <stdbool.h>

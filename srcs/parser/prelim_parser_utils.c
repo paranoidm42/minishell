@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prelim_parser_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 11:30:05 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/11/16 21:40:03 by aerdogan         ###   ########.fr       */
+/*   Created: 2023/12/28 11:30:05 by ccur          #+#    #+#             */
+/*   Updated: 2024/01/25 02:01:43 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
