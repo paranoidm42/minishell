@@ -6,13 +6,11 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 03:01:58 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/25 01:55:53 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/25 21:22:43 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../42lib/libft/libft.h"
-#include <stdlib.h>
-#include <stdbool.h>
+#include "../minishell.h"
 
 t_quotes	quote_check(const char *str, size_t start)
 {
