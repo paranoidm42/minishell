@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   executer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 01:01:05 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/12/15 15:01:06 by aerdogan         ###   ########.fr       */
+/*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
+/*   Updated: 2024/01/25 21:38:07 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include "../42lib/libft/libft.h"
-#include <stdlib.h>
-#include <stdbool.h>
 #include <readline/history.h>
 #include <readline/readline.h>
 

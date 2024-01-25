@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 09:00:58 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/11/18 13:00:59 by abulut           ###   ########.fr       */
+/*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
+/*   Updated: 2024/01/25 21:37:54 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <stdlib.h>
-#include "../42lib/libft/libft.h"
 #include <sys/errno.h>
 
 void	ft_fill_env(t_init *process, t_cmd *cmd, t_export *exp, size_t i)

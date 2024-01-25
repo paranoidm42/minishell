@@ -6,13 +6,11 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 03:01:58 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/25 02:04:11 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/25 21:40:37 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include "../42lib/libft/libft.h"
-#include <stdlib.h>
 
 static size_t	split_rdrtokens(t_list *tokens, size_t i)
 {

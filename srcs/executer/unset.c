@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 12:22:38 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/12/24 01:00:39 by abulut           ###   ########.fr       */
+/*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
+/*   Updated: 2024/01/25 21:35:07 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include "../42lib/libft/libft.h"
-#include <stdlib.h>
 
 static void	ft_find_unset_arg(char **env, char *arg, size_t len)
 {

@@ -6,13 +6,11 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 03:02:50 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/25 02:03:47 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/25 21:40:31 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <stdlib.h>
-#include "../42lib/libft/libft.h"
 
 static int	wordcount(char const *s)
 {

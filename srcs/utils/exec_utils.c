@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   exec_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 01:12:28 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/12/13 11:22:29 by aerdogan         ###   ########.fr       */
+/*   Created: 2023/11/07 01:12:28 by ccur              #+#    #+#             */
+/*   Updated: 2024/01/25 23:09:28 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 #include <unistd.h>
-#include <stdlib.h>
 #include <sys/errno.h>
-#include <stdbool.h>
 
 void	ft_remove_quotes(char *data)
 {

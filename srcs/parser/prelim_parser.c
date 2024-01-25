@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <stdlib.h>
 #include <sys/errno.h>
 #include <sys/param.h>
 

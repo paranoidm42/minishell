@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fds.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 12:30:54 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/12/09 01:30:55 by aerdogan         ###   ########.fr       */
+/*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
+/*   Updated: 2024/01/25 21:37:48 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 #include <fcntl.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "../42lib/libft/libft.h"
 #include <sys/errno.h>
 
 void	ft_close_pipe_fds(t_init *process)

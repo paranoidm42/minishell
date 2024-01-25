@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 00:28:30 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/11/20 22:47:11 by abulut           ###   ########.fr       */
+/*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
+/*   Updated: 2024/01/25 21:37:02 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <signal.h>
 #include <readline/history.h>
 #include <readline/readline.h>
-#include <stdbool.h>
 #include <sys/errno.h>
 #include <sys/param.h>
 

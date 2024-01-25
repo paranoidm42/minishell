@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   free2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 01:02:36 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/12/23 01:02:37 by aerdogan         ###   ########.fr       */
+/*   Created: 2023/12/13 01:02:36 by ccur              #+#    #+#             */
+/*   Updated: 2024/01/25 23:09:13 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <stdlib.h>
-#include "../42lib/libft/libft.h"
 
 void	freestructs_nodata(t_scmd_list *temp)
 {

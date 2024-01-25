@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 21:02:40 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/11/05 01:32:41 by aerdogan         ###   ########.fr       */
+/*   Created: 2023/11/03 21:02:40 by ccur              #+#    #+#             */
+/*   Updated: 2024/01/25 23:09:20 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <stdlib.h>
 
 t_scmd_list	*ft_lstnewscmd(void *data, t_struct_type type, t_init *process)
 {

@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   node_mem.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 02:02:45 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/11/05 05:43:46 by aerdogan         ###   ########.fr       */
+/*   Created: 2023/11/04 02:02:45 by ccur              #+#    #+#             */
+/*   Updated: 2024/01/25 23:09:05 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <stdlib.h>
-#include <stdbool.h>
 
 t_rdr	*ft_allocate_mem_rdr(char *data, t_rdr_type type)
 {

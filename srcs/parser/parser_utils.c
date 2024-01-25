@@ -6,14 +6,11 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:01:41 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/25 02:03:09 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/25 21:40:43 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <stdlib.h>
-#include "../42lib/libft/libft.h"
-#include <stdbool.h>
 
 static size_t	replace_data(t_token *token, size_t i, size_t j, bool in_single)
 {

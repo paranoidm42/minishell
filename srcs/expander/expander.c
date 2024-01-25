@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 03:01:58 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/25 01:55:47 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/25 21:38:58 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <stdlib.h>
-#include "../42lib/libft/libft.h"
-#include <stdbool.h>
 
 static char	*expanded_part(char *str, t_env *env, t_init *process)
 {

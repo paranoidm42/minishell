@@ -6,13 +6,11 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:01:43 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/25 02:03:18 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/25 21:40:48 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include "../42lib/libft/libft.h"
-#include <stdlib.h>
 #include <sys/errno.h>
 #include <sys/param.h>
 

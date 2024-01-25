@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   string_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 11:02:47 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/11/02 16:22:38 by aerdogan         ###   ########.fr       */
+/*   Created: 2023/11/02 11:02:47 by ccur          #+#    #+#             */
+/*   Updated: 2024/01/25 21:41:45 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include "../42lib/libft/libft.h"
-#include <stdbool.h>
-#include <stdlib.h>
 
 bool	str_equals(char *lhs, char *rhs)
 {

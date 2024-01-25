@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   pwd_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 11:00:45 by abulut            #+#    #+#             */
-/*   Updated: 2023/12/20 10:31:46 by aerdogan         ###   ########.fr       */
+/*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
+/*   Updated: 2024/01/25 21:37:20 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <stdbool.h>
-#include <stdlib.h>
 #include <unistd.h>
-#include "../42lib/libft/libft.h"
 #include <sys/errno.h>
 #include <sys/param.h>
 

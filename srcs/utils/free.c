@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 21:32:11 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/12/23 11:12:32 by aerdogan         ###   ########.fr       */
+/*   Created: 2023/12/12 21:32:11 by ccur              #+#    #+#             */
+/*   Updated: 2024/01/25 23:09:25 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <stdlib.h>
-#include "../42lib/libft/libft.h"
-#include <stdbool.h>
+
 
 void	ft_free_str_array(char **arr, char *str)
 {

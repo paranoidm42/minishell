@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   atollong.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerdogan <aerdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 07:02:23 by aerdogan          #+#    #+#             */
-/*   Updated: 2023/11/05 08:04:21 by aerdogan         ###   ########.fr       */
+/*   Created: 2023/11/05 07:02:23 by ccur              #+#    #+#             */
+/*   Updated: 2024/01/25 23:09:42 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include "../42lib/libft/libft.h"
 #include <limits.h>
 
 int32_t	is_whitespace_ll(char c)
