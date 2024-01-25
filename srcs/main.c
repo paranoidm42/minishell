@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:01:22 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/25 21:40:11 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/26 01:49:03 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int32_t	main(int32_t argc, char **argv, char **envp)
 	(void)argv, (void)argc;
 	process.errorcode = 0;
 	process.must_exit = false;
-	str = NULL;
+	str = NULL;c
 	if (!ft_copy_env(&process, &env, envp))
 		return (process.errorcode);
 	process.env = &env;

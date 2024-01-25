@@ -6,12 +6,11 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 21:32:11 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/25 23:09:25 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/26 01:19:13 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-
 
 void	ft_free_str_array(char **arr, char *str)
 {

@@ -74,7 +74,7 @@ char	*complete_input(t_init *process, char *input)
 		return (input);
 	if ((len > 1 && (input[len - 1] == '|' && input[len - 2] != '\\')) || \
 		(len > 2 && (input[len - 2] == '|' && input[len - 3] != '\\')))
-		input = new_userinput(input, '|');
+		input = new_userinput(input, '>');
 	if (!input)
 		return (ft_throw_error(process, ENOMEM), NULL);
 	return (input);
