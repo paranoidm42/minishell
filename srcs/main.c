@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:01:22 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/25 21:17:04 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/25 21:27:07 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	ft_loop(t_list *lst, t_init *process, char *str)
 		else if (readline_return == EMPTY_STRING)
 			continue ;
 		str = complete_input(process, str);
-		if (!str || !ft_setup_noninteractive(process))
+		if (!str)
 			break ;
 		if (!str[0])
 		{
