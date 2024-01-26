@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/25 21:37:43 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2024/01/26 16:48:35 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,6 @@ static bool	ft_read_input(t_init *process, char *data, int32_t *fd, \
 		str = readline("> ");
 		if (!str || g_signal == SIGINT || !ft_strncmp(str, data, (datalen + 1)))
 		{
-			if (!str)
-				printf("%s\n", \
-					"minishell: warning: here-doc delimited by end-of-file");
 			free(str);
 			break ;
 		}

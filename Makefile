@@ -1,7 +1,7 @@
 NAME = minishell
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRC_DIR = srcs/executer
 EXPANDER_DIR = srcs/expander
