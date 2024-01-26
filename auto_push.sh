@@ -1,14 +1,5 @@
 #!/bin/bash
 
-function loading() {
-    echo -n "Progress: ["
-    for ((i = 1; i <= 100; i++)); do
-        echo -n "#"
-        sleep 0.5
-    done
-    echo -e "] 100%\n"
-}
-
 merge_branch()
 {
     git switch "$1"  2> /dev/null 2>&1
@@ -20,7 +11,7 @@ merge_branch()
 }
 
 name="$1" > /dev/null 2>&1
-printf "Merhaba $name ...\n" && loading
+printf "Merhaba $name ...\n" 
 git merge main > /dev/null 2>&1
 printf "branch changed to main...\n"
 printf "Branch changed...\n"

@@ -15,7 +15,7 @@
 
 # include <stdbool.h>
 # include <stdlib.h>
-#include <stdio.h>
+# include <stdio.h>
 # include "42lib/libft/libft.h"
 
 extern int32_t	g_signal;
