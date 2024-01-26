@@ -166,7 +166,6 @@ size_t		ft_count_pipes(t_list *arglst);
 bool		ft_create_pipes(t_init *process, size_t pipe_count);
 
 bool		ft_setup_interactive(t_init *process);
-bool		ft_setup_noninteractive(t_init *process);
 
 char		*find_end(char *str, char *beginning);
 char		*find_middle(char *str, size_t i, size_t len);

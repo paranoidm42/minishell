@@ -6,13 +6,14 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:01:22 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/26 01:49:03 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/26 04:14:58 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <stdbool.h>
 
 int32_t	g_signal = 0;
 
@@ -81,6 +82,12 @@ static void	ft_loop(t_list *lst, t_init *process, char *str)
 			break ;
 	}
 }
+static void if_not_env(t_env *env)
+{
+	env->env_len = 1;
+	env->new_env = malloc((env->env_len) * sizeof(char *));
+	env->new_env[0] = NULL;
+}
 
 int32_t	main(int32_t argc, char **argv, char **envp)
 {
@@ -92,9 +99,14 @@ int32_t	main(int32_t argc, char **argv, char **envp)
 	(void)argv, (void)argc;
 	process.errorcode = 0;
 	process.must_exit = false;
-	str = NULL;c
-	if (!ft_copy_env(&process, &env, envp))
-		return (process.errorcode);
+	str = NULL;
+	if(envp)
+	{
+		if (!ft_copy_env(&process, &env, envp))
+			return (process.errorcode);
+	}
+	else
+		if_not_env(&env);
 	process.env = &env;
 	ft_loop(&lst, &process, str);
 	rl_clear_history();
