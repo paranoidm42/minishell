@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:01:41 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/25 21:40:43 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/28 01:51:50 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,10 @@ static size_t	replace_data(t_token *token, size_t i, size_t j, bool in_single)
 size_t	remove_quotes(t_list *tokens)
 {
 	t_token	*token;
-	size_t	i;
 
 	while (tokens)
 	{
 		token = tokens->content;
-		i = 0;
 		if (token->data != NULL)
 		{
 			if (ft_strnstr(token->data, "<<", 3) != NULL)

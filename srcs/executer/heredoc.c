@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/26 16:48:35 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/28 01:51:02 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <readline/history.h>
 #include <readline/readline.h>
+#include <signal.h>
 
 static bool	ft_expand_str(t_init *process, int32_t *fd, char *str, size_t i)
 {

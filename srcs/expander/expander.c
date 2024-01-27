@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 03:01:58 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/25 21:38:58 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2024/01/28 01:51:32 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,8 @@ static size_t	replace_token(t_token *token, t_env *env, t_init *process)
 
 static bool	expand_check(char *str, size_t start)
 {
-	bool	res;
 	size_t	i;
 
-	res = false;
 	i = start;
 	if (ft_strncmp(str, "~/", 2) == 0 || ft_strncmp(str, "~", 2) == 0)
 		return (true);

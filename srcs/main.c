@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:01:22 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/26 09:05:57 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/28 01:48:53 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <stdbool.h>
+#include <signal.h>
+#include <stdint.h>
 
 int32_t	g_signal = 0;
 

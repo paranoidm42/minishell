@@ -6,13 +6,14 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/26 16:55:06 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/28 01:50:52 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 #include <fcntl.h>
 #include <sys/errno.h>
+#include <signal.h>
 
 void	ft_close_pipe_fds(t_init *process)
 {
