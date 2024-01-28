@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/25 21:38:07 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2024/01/28 02:27:01 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ static void	ft_single_scmd(t_list *lst, t_init *process)
 
 static bool	ft_executor2(t_list *lst, t_init *process)
 {
+	process->sig_heredoc = 1;
 	if (!lst->next)
 	{
 		ft_single_scmd(lst, process);
@@ -107,7 +108,8 @@ static bool	ft_executor2(t_list *lst, t_init *process)
 		ft_store_old_fd(process);
 		lst = lst->next;
 	}
-	ft_wait_for_last_child(process);
+	if(process->sig_heredoc == 1)
+		ft_wait_for_last_child(process);
 	if (process->must_exit == true)
 		return (false);
 	return (true);

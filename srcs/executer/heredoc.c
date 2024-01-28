@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/28 01:51:02 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/28 02:44:31 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <readline/history.h>
 #include <readline/readline.h>
 #include <signal.h>
+#include <wait.h>
 
 static bool	ft_expand_str(t_init *process, int32_t *fd, char *str, size_t i)
 {
@@ -83,34 +84,54 @@ static bool	ft_expand_check(t_init *process, int32_t *fd, bool expand, \
 	return (true);
 }
 
-static bool	ft_read_input(t_init *process, char *data, int32_t *fd, \
+void ft_read_input_fork(t_init *process, char *data, int32_t *fd, \
 	bool expand)
 {
-	char	*str;
 	size_t	datalen;
+	char	*str;
 
 	datalen = ft_strlen(data);
+	g_signal = 1;
 	while (1)
 	{
 		str = readline("> ");
-		if (!str || g_signal == SIGINT || !ft_strncmp(str, data, (datalen + 1)))
+
+		if (!str  || !ft_strncmp(str, data, (datalen + 1)))
 		{
 			free(str);
 			break ;
 		}
 		if (!ft_expand_check(process, fd, expand, str))
-			return (free(str), false);
+		{
+			free(str);
+			exit(-1);
+		}
 		free(str);
 		str = NULL;
 	}
-	return (true);
+	exit(1);
+}
+
+static void	ft_read_input(t_init *process, char *data, int32_t *fd, \
+	bool expand)
+{
+	pid_t pid;
+	int status;
+
+	status = 1;
+	pid = fork();
+	if(!pid)
+		ft_read_input_fork(process,data,fd,expand);
+	waitpid(pid,&status,0);
+	process->sig_heredoc = WEXITSTATUS(status);
+
 }
 
 bool	ft_heredoc(t_init *process, char *data)
 {
 	int32_t	fd[2];
 	bool	expand;
-
+	process->sig_heredoc = 1;
 	expand = true;
 	if (pipe(fd) == -1)
 		return (ft_throw_error(process, errno), false);
@@ -119,15 +140,17 @@ bool	ft_heredoc(t_init *process, char *data)
 		ft_remove_quotes(data);
 		expand = false;
 	}
-	if (!ft_read_input(process, data, fd, expand))
+	ft_read_input(process, data, fd, expand);
+	if (process->sig_heredoc == -1)
 	{
 		ft_throw_error(process, ENOMEM);
 		if (close(fd[0]) == -1 || close(fd[1]) == -1)
 			ft_throw_error(process, errno);
 		return (false);
 	}
-	if (dup2(fd[0], STDIN_FILENO) == -1 || close(fd[0]) == -1 || \
-		close(fd[1]) == -1)
-		ft_throw_error(process, errno);
+	if(process->sig_heredoc == 1)
+		if (dup2(fd[0], STDIN_FILENO) == -1 || close(fd[0]) == -1 || \
+			close(fd[1]) == -1)
+			ft_throw_error(process, errno);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:01:22 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/28 01:48:53 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/28 02:41:01 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static t_string_status	read_from_line(char **str)
 static void	ft_loop(t_list *lst, t_init *process, char *str)
 {
 	t_string_status	readline_return;
-
+	
 	while (1)
 	{
 		if (!ft_setup_interactive(process))

@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/25 23:15:34 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/28 02:43:35 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,22 @@ static void	ft_interactive_handler(int32_t signum)
 {
 	if (signum == SIGINT)
 	{
-		g_signal = SIGINT;
-		ft_putchar_fd('\n', STDOUT_FILENO);
-		rl_replace_line("", 0);
-		rl_on_new_line();
-		rl_redisplay();
+		if(g_signal == 0 || g_signal == SIGINT)
+		{
+			g_signal = SIGINT;
+			ft_putchar_fd('\n', STDOUT_FILENO);
+			rl_replace_line("", 0);
+			rl_on_new_line();
+			rl_redisplay();
+		}
+		else if (g_signal == 1)
+		{
+			ft_putchar_fd('\n', STDOUT_FILENO);
+			rl_replace_line("", 0);
+			rl_on_new_line();
+			rl_redisplay();
+			exit(0);
+		}
 	}
 	if (signum == SIGQUIT)
 	{

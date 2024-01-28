@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/28 01:50:34 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/28 02:25:53 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,17 +92,20 @@ static void	ft_find_cmd(t_scmd_list *lst, t_init *process)
 
 void	ft_create_child(t_list *lst, t_init *process)
 {
-	ft_find_cmd(lst->content, process);
-	process->ids[process->i] = fork();
-	if (process->ids[process->i] == -1)
+	if(process->sig_heredoc == 1)
 	{
-		ft_throw_error(process, errno);
-		return ;
+		ft_find_cmd(lst->content, process);
+		process->ids[process->i] = fork();
+		if (process->ids[process->i] == -1)
+		{
+			ft_throw_error(process, errno);
+			return ;
+		}
+		if (process->ids[process->i] == 0)
+			ft_child_process(lst, process);
+		process->i++;
+		process->heredoc = false;
+		process->fdout = 0;
+		process->fdin = 0;
 	}
-	if (process->ids[process->i] == 0)
-		ft_child_process(lst, process);
-	process->i++;
-	process->heredoc = false;
-	process->fdout = 0;
-	process->fdin = 0;
 }

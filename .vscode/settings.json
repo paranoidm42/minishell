@@ -7,6 +7,9 @@
 		"string_view": "c",
 		"vector": "c",
 		"errno.h": "c",
-		"history.h": "c"
-	}
+		"history.h": "c",
+		"readline.h": "c",
+		"compare": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }
