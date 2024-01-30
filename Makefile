@@ -54,7 +54,7 @@ INCLUDES = -I$(LIBFT_DIR) -I$(SRC_DIR) -I$(EXPANDER_DIR) -I$(LEXER_DIR) -I$(PARS
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make -C $(LIBFT_DIR)
+	@make -C $(LIBFT_DIR) re
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
