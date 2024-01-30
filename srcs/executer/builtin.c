@@ -3,18 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcopoglu <bcopoglu@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/25 21:38:33 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2024/01/30 09:51:01 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <sys/param.h>
-#include <sys/errno.h>
 #include <readline/history.h>
 #include <readline/readline.h>
+#include <sys/errno.h>
+#include <sys/param.h>
+
+static void	exit_with_fork(void)
+{
+	int	pid;
+
+	pid = fork();
+	if (pid == 0)
+		exit(1);
+	else
+		waitpid(-1, NULL, 0);
+	ft_putendl_fd("exit", STDERR_FILENO);
+	ft_putendl_fd("bash :exit: too many arguments", STDERR_FILENO);
+}
 
 static bool	ft_echo_check(t_cmd *cmd, size_t i)
 {
@@ -47,8 +60,8 @@ bool	ft_echo_builtin(t_init *process, t_cmd *cmd)
 	{
 		while (cmd->arg[i + 1])
 		{
-			if (write(STDOUT_FILENO, cmd->arg[i], ft_strlen(cmd->arg[i])) == \
-				-1 || write(STDOUT_FILENO, " ", 1) == -1)
+			if (write(STDOUT_FILENO, cmd->arg[i], ft_strlen(cmd->arg[i])) == -1
+				|| write(STDOUT_FILENO, " ", 1) == -1)
 				return (ft_throw_error(process, errno), false);
 			i++;
 		}
@@ -85,16 +98,16 @@ void	ft_exit_builtin(t_list *lst, t_init *process, t_cmd *cmd)
 
 	i = 0;
 	string_to_llong = process->errorcode;
-	if (cmd->arg[1])
+	if (cmd->arg[1] && cmd->arg[2])
 	{
-		if (cmd->arg[1][0] == '-' || cmd->arg[1][0] == '+')
-			i++;
-		while (cmd->arg[1][i])
-		{
-			if (!ft_isdigit(cmd->arg[1][i]))
-				ft_error_exit(lst, process, cmd->arg[1]);
-			i++;
-		}
+		exit_with_fork();
+		process->errorcode = 1;
+		return ;
+	}
+	else if (cmd->arg[1])
+	{
+		if (!cmd_control(cmd))
+			ft_error_exit(lst, process, cmd->arg[1]);
 		string_to_llong = ft_atollong(lst, process, cmd->arg[1]) % 256;
 		if (string_to_llong < 0)
 			string_to_llong += 256;

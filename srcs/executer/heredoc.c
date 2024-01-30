@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/30 08:22:39 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/30 09:48:46 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static bool	ft_read_input(t_init *process, char *data, int32_t *fd, bool expand)
 
 	datalen = ft_strlen(data);
 	g_signal = 0;
-	while (1)
+	while (g_signal != 1)
 	{
 		str = readline("> ");
 		if (!str || g_signal == SIGINT || !ft_strncmp(str, data, (datalen + 1)))

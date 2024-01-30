@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/30 08:38:36 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/30 09:53:10 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,27 @@ bool	ft_setup_interactive(t_init *process)
 		return (false);
 	}
 	return (true);
+}
+
+int	cmd_control(t_cmd *cmd)
+{
+	int	i;
+	int	j;
+
+	j = 1;
+	i = 0;
+	while (cmd->arg[j])
+	{
+		i = 0;
+		while (cmd->arg[j][i])
+		{
+			if (cmd->arg[j][0] == '-' || cmd->arg[j][0] == '+')
+				i++;
+			if (!ft_isdigit(cmd->arg[j][i]))
+				return (0);
+			i++;
+		}
+		j++;
+	}
+	return (1);
 }

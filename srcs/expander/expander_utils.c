@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 03:01:58 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/25 21:22:43 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/30 11:00:17 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,26 @@ t_quotes	quote_check(const char *str, size_t start)
 		return (NOT_QUOTED);
 }
 
-char	*find_end(char *str, char *beginning)
+char	*find_end(char *str, char *beginning, size_t len)
 {
 	char	*end;
 	size_t	i;
-	size_t	len;
 
 	i = 0;
 	while (str[i] == beginning[i])
 		i++;
-	if (str[i] == '$')
-		i++;
-	while (str[i] != '\0')
+	if (str[i] == '$' && ft_isdigit(str[i + 1]))
+		i += 2;
+	else
 	{
-		if (ft_isalnum(str[i]) == 0 && str[i] != '_' && str[i] != '?')
-			break ;
-		i++;
+		if (str[i] == '$')
+			i++;
+		while (str[i] != '\0')
+		{
+			if (ft_isalnum(str[i]) == 0 && str[i] != '_' && str[i] != '?')
+				break ;
+			i++;
+		}
 	}
 	len = ft_strlen(&str[i]);
 	if (i > 0 && str[i] == '$' && str[i - 1] == '$')

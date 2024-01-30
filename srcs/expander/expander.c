@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 03:01:58 by ccur              #+#    #+#             */
-/*   Updated: 2024/01/28 01:51:32 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/30 11:01:34 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*expand_data(char *str, t_env *env, bool in_heredoc, t_init *process)
 	beginning = find_begin(str, in_heredoc);
 	if (!beginning)
 		return (NULL);
-	end = find_end(str, beginning);
+	end = find_end(str, beginning, 0);
 	if (!end)
 		return (free(beginning), NULL);
 	middle = find_middle(str, 0, 1);

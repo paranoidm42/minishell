@@ -168,7 +168,7 @@ bool		ft_create_pipes(t_init *process, size_t pipe_count);
 
 bool		ft_setup_interactive(t_init *process);
 
-char		*find_end(char *str, char *beginning);
+char		*find_end(char *str, char *beginning, size_t len);
 char		*find_middle(char *str, size_t i, size_t len);
 char		*find_begin(char *str, bool in_heredoc);
 void		multi_free(char *begin, char *mid, char *end, char *temp);
@@ -212,6 +212,7 @@ void		ft_free_str_array(char **arr, char *str);
 void		freescmdlst(t_scmd_list **lst);
 void		ft_freelst(t_list *lst);
 void		free_tokenlst(t_list **tokens, bool free_data);
+int			cmd_control(t_cmd *cmd);
 
 t_scmd_list	*ft_lstnewscmd(void *data, t_struct_type type, t_init *process);
 void		scmdlst_add_back(t_scmd_list **scmds, t_scmd_list *new);
