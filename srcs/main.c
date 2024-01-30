@@ -6,18 +6,18 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:01:22 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/28 02:41:01 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/30 08:44:04 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <readline/readline.h>
 #include <readline/history.h>
-#include <stdbool.h>
+#include <readline/readline.h>
 #include <signal.h>
+#include <stdbool.h>
 #include <stdint.h>
 
-int32_t	g_signal = 0;
+int32_t					g_signal = 0;
 
 static bool	ft_only_spaces_check(char *str)
 {
@@ -59,7 +59,7 @@ static t_string_status	read_from_line(char **str)
 static void	ft_loop(t_list *lst, t_init *process, char *str)
 {
 	t_string_status	readline_return;
-	
+
 	while (1)
 	{
 		if (!ft_setup_interactive(process))
@@ -99,6 +99,8 @@ int32_t	main(int32_t argc, char **argv, char **envp)
 	t_env	env;
 	char	*str;
 
+	if (argc >= 2)
+		return (ft_putstr_fd("Argument error!!\n", 0), process.errorcode);
 	(void)argv, (void)argc;
 	process.errorcode = 0;
 	process.must_exit = false;

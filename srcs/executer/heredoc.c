@@ -6,17 +6,15 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/28 02:44:31 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/30 08:22:39 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-#include <sys/errno.h>
-#include <unistd.h>
 #include <readline/history.h>
 #include <readline/readline.h>
-#include <signal.h>
-#include <wait.h>
+#include <sys/errno.h>
+#include <unistd.h>
 
 static bool	ft_expand_str(t_init *process, int32_t *fd, char *str, size_t i)
 {
@@ -69,8 +67,8 @@ static bool	ft_expand_loop(t_init *process, int32_t *fd, char *str)
 	return (true);
 }
 
-static bool	ft_expand_check(t_init *process, int32_t *fd, bool expand, \
-	char *str)
+static bool	ft_expand_check(t_init *process, int32_t *fd, bool expand,
+		char *str)
 {
 	if (expand == true && ft_strchr(str, '$'))
 	{
@@ -78,60 +76,41 @@ static bool	ft_expand_check(t_init *process, int32_t *fd, bool expand, \
 			return (false);
 		return (true);
 	}
-	if (write(fd[1], str, ft_strlen(str)) == -1 || \
-		write(fd[1], "\n", 1) == -1)
+	if (write(fd[1], str, ft_strlen(str)) == -1 || write(fd[1], "\n", 1) == -1)
 		perror("minishell");
 	return (true);
 }
 
-void ft_read_input_fork(t_init *process, char *data, int32_t *fd, \
-	bool expand)
+static bool	ft_read_input(t_init *process, char *data, int32_t *fd, bool expand)
 {
-	size_t	datalen;
 	char	*str;
+	size_t	datalen;
 
 	datalen = ft_strlen(data);
-	g_signal = 1;
+	g_signal = 0;
 	while (1)
 	{
 		str = readline("> ");
-
-		if (!str  || !ft_strncmp(str, data, (datalen + 1)))
+		if (!str || g_signal == SIGINT || !ft_strncmp(str, data, (datalen + 1)))
 		{
+			if (g_signal == SIGINT)
+				g_signal = 1;
 			free(str);
 			break ;
 		}
 		if (!ft_expand_check(process, fd, expand, str))
-		{
-			free(str);
-			exit(-1);
-		}
+			return (free(str), false);
 		free(str);
 		str = NULL;
 	}
-	exit(1);
-}
-
-static void	ft_read_input(t_init *process, char *data, int32_t *fd, \
-	bool expand)
-{
-	pid_t pid;
-	int status;
-
-	status = 1;
-	pid = fork();
-	if(!pid)
-		ft_read_input_fork(process,data,fd,expand);
-	waitpid(pid,&status,0);
-	process->sig_heredoc = WEXITSTATUS(status);
-
+	return (true);
 }
 
 bool	ft_heredoc(t_init *process, char *data)
 {
 	int32_t	fd[2];
 	bool	expand;
-	process->sig_heredoc = 1;
+
 	expand = true;
 	if (pipe(fd) == -1)
 		return (ft_throw_error(process, errno), false);
@@ -140,17 +119,17 @@ bool	ft_heredoc(t_init *process, char *data)
 		ft_remove_quotes(data);
 		expand = false;
 	}
-	ft_read_input(process, data, fd, expand);
-	if (process->sig_heredoc == -1)
+	if (!ft_read_input(process, data, fd, expand))
 	{
 		ft_throw_error(process, ENOMEM);
 		if (close(fd[0]) == -1 || close(fd[1]) == -1)
 			ft_throw_error(process, errno);
 		return (false);
 	}
-	if(process->sig_heredoc == 1)
-		if (dup2(fd[0], STDIN_FILENO) == -1 || close(fd[0]) == -1 || \
-			close(fd[1]) == -1)
+	if (g_signal != 1)
+		if (dup2(fd[0], STDIN_FILENO) == -1 || close(fd[0]) == -1
+			|| close(fd[1]) == -1)
 			ft_throw_error(process, errno);
+	g_signal = SIGINT;
 	return (true);
 }

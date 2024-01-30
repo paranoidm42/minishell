@@ -98,7 +98,7 @@ typedef struct s_init
 	t_env	*env;
 	pid_t	*ids;
 	t_cmd	*cmd;
-	int32_t sig_heredoc;
+	int32_t	sig_heredoc;
 	int32_t	status;
 	int32_t	errorcode;
 	size_t	i;

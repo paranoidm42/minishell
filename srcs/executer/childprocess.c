@@ -6,7 +6,7 @@
 /*   By: ccur <ccur@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:03:18 by bcopoglu          #+#    #+#             */
-/*   Updated: 2024/01/28 02:25:53 by ccur             ###   ########.fr       */
+/*   Updated: 2024/01/30 08:18:14 by ccur             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <sys/errno.h>
 #include <readline/readline.h>
 #include <readline/history.h>
-#include <sys/wait.h>
 
 void	ft_wait_for_last_child(t_init *process)
 {
@@ -92,20 +91,17 @@ static void	ft_find_cmd(t_scmd_list *lst, t_init *process)
 
 void	ft_create_child(t_list *lst, t_init *process)
 {
-	if(process->sig_heredoc == 1)
+	ft_find_cmd(lst->content, process);
+	process->ids[process->i] = fork();
+	if (process->ids[process->i] == -1)
 	{
-		ft_find_cmd(lst->content, process);
-		process->ids[process->i] = fork();
-		if (process->ids[process->i] == -1)
-		{
-			ft_throw_error(process, errno);
-			return ;
-		}
-		if (process->ids[process->i] == 0)
-			ft_child_process(lst, process);
-		process->i++;
-		process->heredoc = false;
-		process->fdout = 0;
-		process->fdin = 0;
+		ft_throw_error(process, errno);
+		return ;
 	}
+	if (process->ids[process->i] == 0)
+		ft_child_process(lst, process);
+	process->i++;
+	process->heredoc = false;
+	process->fdout = 0;
+	process->fdin = 0;
 }
